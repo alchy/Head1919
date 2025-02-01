@@ -34,6 +34,10 @@ def compile_display_list(vertices, faces):
     """
     model_list = glGenLists(1)
     glNewList(model_list, GL_COMPILE)
+
+    # Nastavíme barvu na zelenou (0.0, 1.0, 0.0)
+    glColor3f(0.2, 0.6, 0.2)
+
     glBegin(GL_TRIANGLES)
     for face in faces:
         # Pokud obličej nemá přesně 3 vrcholy, rozdělíme jej na trojúhelníky
@@ -142,6 +146,7 @@ def initialize():
     display_size = (800, 600)
     pygame.display.set_mode(display_size, DOUBLEBUF | OPENGL)
     pygame.font.init()  # nutné pro vykreslení textu
+
 
     # Nastavíme perspektivu
     glMatrixMode(GL_PROJECTION)
